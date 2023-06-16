@@ -406,6 +406,11 @@ namespace LiveSplit.HollowKnight {
             //GameManager._instance.nextSceneName
             return gameManager.Read(Program, 0x0, nextSceneName);
         }
+
+        public int Health() {
+            //GameManager._instance.heroCtrl.health
+            return gameManager.Read<int>(Program, 0x0, playerData, HollowKnight.PlayerData.GetOffset(Offset.health));
+        }
         public bool UsesSceneTransitionRoutine() {
             /*
              * 1.3.1.5 and above swap from using LoadSceneAdditive to a SceneTransitionRoutine triggered
